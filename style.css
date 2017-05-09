@@ -1,0 +1,79 @@
+body {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-family: 'Open-Sans', sans-serif;
+	color: #333333;
+}
+
+h1, h2, h3 {
+	font-family: 'Asar', serif;
+}
+
+a, a:hover {
+	color: black;
+}
+
+.jumbotron {
+	min-height: 75%;
+}
+
+#sideBarInfo {
+	margin-top: 15vh;
+}
+
+@media screen and (max-width: 767px) {
+  .row-offscreen {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offscreen-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offscreen-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offscreen-right.active {
+    right: 41.6%;
+  }
+  .row-offscreen-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offscreen {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+}
+
+.img-circle {
+	display: block;
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.jumbotron.row.col-lg-6 a {
+	font-size: 1em;
+}
+
+.blogEntryW {
+	background-color: #eee;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.blogEntry {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+a:hover p {
+	text-decoration: none;
+}
