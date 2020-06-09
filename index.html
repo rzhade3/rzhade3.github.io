@@ -1,40 +1,64 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+		<link href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css" rel="stylesheet" />
 		<title> Rahul Zhade </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 		<style>
+			html, body, pre, code, kbd, samp {
+					font-family: 'Press Start 2P', monospace;
+			}
 			body {
-				background-color: #111;
-				color: white;
-				font-family: 'Lato', sans-serif;
-				background-image: url("spiration_dark.png");
 				margin-top: 3%;
+				margin-left: 3%;
+				margin-right: 3%;
 			}
 			.icons > a {
 				margin-right: 1em;
 			}
 			a {
-				color: white;
+				color: black;
 			}
 		</style>
+
+		<!-- Async loading NES icons and Press Start font -->
+		<script type="text/javascript">
+			/* First CSS File */
+			var giftofspeed = document.createElement('link');
+			giftofspeed.rel = 'stylesheet';
+			giftofspeed.href = 'https://unpkg.com/nes.css@2.3.0/css/nes.min.css';
+			giftofspeed.type = 'text/css';
+			var godefer = document.getElementsByTagName('link')[0];
+			godefer.parentNode.insertBefore(giftofspeed, godefer);
+
+			/* Second CSS File */
+			var giftofspeed2 = document.createElement('link');
+			giftofspeed2.rel = 'stylesheet';
+			giftofspeed2.href = 'https://fonts.googleapis.com/css?family=Press+Start+2P';
+			giftofspeed2.type = 'text/css';
+			var godefer2 = document.getElementsByTagName('link')[0];
+			godefer2.parentNode.insertBefore(giftofspeed2, godefer2);
+		</script>
+		<!-- Loading normally without JS -->
+		<noscript>
+			<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+			<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+		</noscript>
 	</head>
-	<body>
+	<body class="nes-container">
 		<div class="container">
 			<br/>
-			<h1><strong> Rahul Zhade </strong></h1>
-			<h3> AppSec Engineer at <strong> GitHub </strong> </h3>
-
+			<h1 class="nes-text"><strong> Rahul Zhade </strong></h1><br>
+			<h3 class="nes-text"> AppSec Engineer at <i class="nes-octocat animate"></i> </h3>
 		</div>
+		<br>
 		<div class="container icons">
-			<a href="https://github.com/rzhade3"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
-			<a href="https://linkedin.com/in/Rahul-Zhade"><i class="fab fa-linkedin-in fa-2x" aria-hidden="true"></i></a>
-			<a href="https://drive.google.com/file/d/1o3vQTebNxjeQ6Pw-nW4-GElvC-qnWHXJ/"><i class="far fa-file-alt fa-2x" aria-hidden="true"></i></a>
-			<a href='m&#97;i&#108;&#116;o&#58;rzhade&#64;gatec&#104;&#46;e&#100;u'><i class="far fa-envelope-open fa-2x" aria-hidden="true"></i></a>
+			<a class="nes-btn is-error" href="https://github.com/rzhade3"><i class="nes-icon github is-medium"></i></a>
+			<a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade"><i class="nes-icon linkedin is-medium"></i></a>
+			<a class="nes-btn is-warning" href="https://drive.google.com/file/d/1o3vQTebNxjeQ6Pw-nW4-GElvC-qnWHXJ/"><img src="doc.png" height=50px></a>
+			<a class="nes-btn is-primary" href='m&#97;i&#108;&#116;o&#58;rzhade&#64;gatec&#104;&#46;e&#100;u'><i class="nes-icon gmail is-medium"></i></a>
 		</div>
 	</body>
 </html>
