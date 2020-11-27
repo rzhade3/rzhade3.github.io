@@ -14,12 +14,19 @@
 				margin-top: 3%;
 				margin-left: 3%;
 				margin-right: 3%;
+			  background-color: #fff;     /* background */
+			  color: #000;                /* for text */
+			}
+
+			/* dark mode */
+			@media screen and (prefers-color-scheme: dark) {
+			  body {
+			    background-color: #222;  /* charcoal instead of complete black */
+			    color: #fff;
+			  }
 			}
 			.icons > a {
 				margin-right: 1em;
-			}
-			a {
-				color: black;
 			}
 		</style>
 
@@ -47,11 +54,11 @@
 			<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
 		</noscript>
 	</head>
-	<body class="nes-container">
+	<body>
 		<div class="container">
 			<br/>
 			<h1 class="nes-text"><strong> Rahul Zhade </strong></h1><br>
-			<h3 class="nes-text"> AppSec Engineer at <i class="nes-octocat animate"></i> </h3>
+			<h3 class="nes-text"> AppSec Engineer at <a class="nes-btn is-success" href="https://github.com"><i class="nes-octocat animate"></i></a> </h3>
 		</div>
 		<br>
 		<div class="container icons">
