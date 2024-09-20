@@ -1,64 +1,108 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-		<link href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css" rel="stylesheet" />
-		<title> Rahul Zhade </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<style>
-			html, body, pre, code, kbd, samp {
-					font-family: 'Press Start 2P', monospace;
-			}
-			body {
-				margin-top: 3%;
-				margin-left: 3%;
-				margin-right: 3%;
-			}
-			.icons > a {
-				margin-right: 1em;
-			}
-			a {
-				color: black;
-			}
-		</style>
+  <head>
+    <!-- Preload the milligram and nes-core CSS for faster loading -->
+    <link
+      rel="preload"
+      href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
 
-		<!-- Async loading NES icons and Press Start font -->
-		<script type="text/javascript">
-			/* First CSS File */
-			var giftofspeed = document.createElement('link');
-			giftofspeed.rel = 'stylesheet';
-			giftofspeed.href = 'https://unpkg.com/nes.css@2.3.0/css/nes.min.css';
-			giftofspeed.type = 'text/css';
-			var godefer = document.getElementsByTagName('link')[0];
-			godefer.parentNode.insertBefore(giftofspeed, godefer);
+    <title>Rahul Zhade</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-			/* Second CSS File */
-			var giftofspeed2 = document.createElement('link');
-			giftofspeed2.rel = 'stylesheet';
-			giftofspeed2.href = 'https://fonts.googleapis.com/css?family=Press+Start+2P';
-			giftofspeed2.type = 'text/css';
-			var godefer2 = document.getElementsByTagName('link')[0];
-			godefer2.parentNode.insertBefore(giftofspeed2, godefer2);
-		</script>
-		<!-- Loading normally without JS -->
-		<noscript>
-			<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-			<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
-		</noscript>
-	</head>
-	<body class="nes-container">
-		<div class="container">
-			<br/>
-			<h1 class="nes-text"><strong> Rahul Zhade </strong></h1><br>
-			<h3 class="nes-text"> AppSec Engineer at <i class="nes-octocat animate"></i> </h3>
-		</div>
-		<br>
-		<div class="container icons">
-			<a class="nes-btn is-error" href="https://github.com/rzhade3"><i class="nes-icon github is-medium"></i></a>
-			<a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade"><i class="nes-icon linkedin is-medium"></i></a>
-			<a class="nes-btn is-success" href="https://twitter.com/rzhade"><i class="nes-icon twitter is-medium"></i></a>
-			<a class="nes-btn is-primary" href="https://blog.zhade.dev"><i class="nes-icon medium is-medium"></i></a>
-		</div>
-	</body>
+    <!-- Preload fonts with font-display swap for better performance -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <style>
+      html,
+      body,
+      pre,
+      code,
+      kbd,
+      samp {
+        font-family: "Press Start 2P", monospace;
+      }
+      body {
+        margin-top: 3%;
+        margin-left: 3%;
+        margin-right: 3%;
+      }
+      .icons > a {
+        margin-right: 1em;
+      }
+      a {
+        color: black;
+      }
+    </style>
+
+    <!-- Async loading NES icons and Press Start font -->
+    <script type="text/javascript">
+      /* Async load NES.min.css */
+      var nesStylesheet = document.createElement("link");
+      nesStylesheet.rel = "stylesheet";
+      nesStylesheet.href = "https://unpkg.com/nes.css@2.3.0/css/nes.min.css";
+      nesStylesheet.type = "text/css";
+      var insertBeforeTag = document.getElementsByTagName("link")[0];
+      insertBeforeTag.parentNode.insertBefore(nesStylesheet, insertBeforeTag);
+
+      /* Async load Google Fonts */
+      var fontStylesheet = document.createElement("link");
+      fontStylesheet.rel = "stylesheet";
+      fontStylesheet.href =
+        "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap";
+      fontStylesheet.type = "text/css";
+      insertBeforeTag.parentNode.insertBefore(fontStylesheet, insertBeforeTag);
+    </script>
+
+    <!-- Fallback for when JavaScript is disabled -->
+    <noscript>
+      <link
+        href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+  </head>
+  <body class="nes-container">
+    <div class="container">
+      <br />
+      <h1 class="nes-text"><strong> Rahul Zhade </strong></h1>
+      <br />
+      <h3 class="nes-text">
+        AppSec Engineer at <i class="nes-octocat animate"></i>
+      </h3>
+    </div>
+    <br />
+    <div class="container icons">
+      <a class="nes-btn is-error" href="https://github.com/rzhade3"
+        ><i class="nes-icon github is-medium"></i
+      ></a>
+      <a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade"
+        ><i class="nes-icon linkedin is-medium"></i
+      ></a>
+      <a class="nes-btn is-success" href="https://twitter.com/rzhade"
+        ><i class="nes-icon twitter is-medium"></i
+      ></a>
+      <a class="nes-btn is-primary" href="https://blog.zhade.dev"
+        ><i class="nes-icon medium is-medium"></i
+      ></a>
+    </div>
+  </body>
 </html>
