@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.rawgit.com" crossorigin />
+
     <!-- Preload the milligram and nes-core CSS for faster loading -->
     <link
       rel="preload"
@@ -47,6 +53,10 @@
       a {
         color: black;
       }
+      /* Hide fallback text once NES.css loads and styles the octocat */
+      .nes-octocat + .octocat-fallback {
+        display: none;
+      }
     </style>
 
     <!-- Async loading NES icons and Press Start font -->
@@ -86,22 +96,22 @@
       <h1 class="nes-text"><strong> Rahul Zhade </strong></h1>
       <br />
       <h3 class="nes-text">
-        AppSec Engineer at <i class="nes-octocat animate"></i>
+        AppSec Engineer at <i class="nes-octocat animate" role="img" aria-label="GitHub"></i><span class="octocat-fallback">GitHub</span>
       </h3>
     </div>
     <br />
     <div class="container icons">
-      <a class="nes-btn is-error" href="https://github.com/rzhade3" alt="GitHub"
-        ><i class="nes-icon github is-medium"></i
+      <a class="nes-btn is-error" href="https://github.com/rzhade3" aria-label="GitHub"
+        ><i class="nes-icon github is-medium" aria-hidden="true"></i
       ></a>
-      <a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade" alt="LinkedIn"
-        ><i class="nes-icon linkedin is-medium"></i
+      <a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade" aria-label="LinkedIn"
+        ><i class="nes-icon linkedin is-medium" aria-hidden="true"></i
       ></a>
-      <a class="nes-btn is-success" href="https://twitter.com/rzhade" alt="Twitter"
-        ><i class="nes-icon twitter is-medium"></i
+      <a class="nes-btn is-success" href="https://twitter.com/rzhade" aria-label="Twitter"
+        ><i class="nes-icon twitter is-medium" aria-hidden="true"></i
       ></a>
-      <a class="nes-btn is-primary" href="https://blog.zhade.dev" alt="Blog"
-        ><i class="nes-icon medium is-medium"></i
+      <a class="nes-btn is-primary" href="https://blog.zhade.dev" aria-label="Blog"
+        ><i class="nes-icon medium is-medium" aria-hidden="true"></i
       ></a>
     </div>
   </body>
