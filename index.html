@@ -1,118 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Preconnect to external domains for faster resource loading -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.rawgit.com" crossorigin />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rahul Zhade</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --text: #ffb000;
+      --text-dim: #805800;
+      --accent: #ffb000;
+      --link-hover: #ffffff;
+    }
 
-    <!-- Preload the milligram and nes-core CSS for faster loading -->
-    <link
-      rel="preload"
-      href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <link
-      rel="preload"
-      href="https://unpkg.com/nes.css@2.3.0/css/nes-core.min.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Rahul Zhade</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    body {
+      font-family: "Courier New", Courier, monospace;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-    <!-- Preload fonts with font-display swap for better performance -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
+    /* Subtle scanline effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      z-index: 10;
+    }
 
-    <style>
-      html,
-      body,
-      pre,
-      code,
-      kbd,
-      samp {
-        font-family: "Press Start 2P", monospace;
+    /* CRT glow effect */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      box-shadow: inset 0 0 150px rgba(255, 176, 0, 0.05);
+      z-index: 11;
+    }
+
+    .container {
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .ascii-art {
+      font-size: clamp(0.4rem, 1.5vw, 0.75rem);
+      line-height: 1.2;
+      white-space: pre;
+      color: var(--text);
+      text-shadow: 0 0 10px var(--text);
+      margin-bottom: 2rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+
+    .role {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .role .company {
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    .prompt {
+      color: var(--text-dim);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .links a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--text-dim);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .links a:hover {
+      color: var(--bg);
+      background-color: var(--text);
+      border-color: var(--text);
+      box-shadow: 0 0 15px var(--text);
+    }
+
+    .links a::before {
+      content: "> ";
+      color: var(--text-dim);
+      transition: color 0.2s ease;
+    }
+
+    .links a:hover::before {
+      color: var(--bg);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.6em;
+      height: 1em;
+      background-color: var(--text);
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .octocat-icon {
+      font-size: clamp(0.35rem, 1.2vw, 0.65rem);
+      line-height: 1.1;
+      color: var(--text);
+      text-shadow: 0 0 10px var(--text);
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    .octocat-icon pre {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+      display: none;
+      text-align: left;
+    }
+    .octocat-icon pre.active {
+      display: block;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Responsive: stack links vertically on mobile */
+    @media (max-width: 500px) {
+      .ascii-art {
+        font-size: 0.35rem;
       }
-      body {
-        margin-top: 3%;
-        margin-left: 3%;
-        margin-right: 3%;
+      .links {
+        flex-direction: column;
+        align-items: center;
       }
-      .icons > a {
-        margin-right: 1em;
+      .links a {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
       }
-      a {
-        color: black;
-      }
-      /* Hide fallback text once NES.css loads and styles the octocat */
-      .nes-octocat + .octocat-fallback {
-        display: none;
-      }
-    </style>
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <pre class="ascii-art" role="img" aria-label="Rahul Zhade">
+ ██████╗  █████╗ ██╗  ██╗██╗   ██╗██╗         ███████╗██╗  ██╗ █████╗ ██████╗ ███████╗
+ ██╔══██╗██╔══██╗██║  ██║██║   ██║██║         ╚══███╔╝██║  ██║██╔══██╗██╔══██╗██╔════╝
+ ██████╔╝███████║███████║██║   ██║██║           ███╔╝ ███████║███████║██║  ██║█████╗  
+ ██╔══██╗██╔══██║██╔══██║██║   ██║██║          ███╔╝  ██╔══██║██╔══██║██║  ██║██╔══╝  
+ ██║  ██║██║  ██║██║  ██║╚██████╔╝███████╗    ███████╗██║  ██║██║  ██║██████╔╝███████╗
+ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝
+    </pre>
 
-    <!-- Async loading NES icons and Press Start font -->
-    <script type="text/javascript">
-      /* Async load NES.min.css */
-      var nesStylesheet = document.createElement("link");
-      nesStylesheet.rel = "stylesheet";
-      nesStylesheet.href = "https://unpkg.com/nes.css@2.3.0/css/nes.min.css";
-      nesStylesheet.type = "text/css";
-      var insertBeforeTag = document.getElementsByTagName("link")[0];
-      insertBeforeTag.parentNode.insertBefore(nesStylesheet, insertBeforeTag);
+    <p class="tagline"><span class="prompt">$</span> whoami</p>
+    <p class="role">AppSec Engineer @ <span class="company">GitHub</span><span class="cursor"></span></p>
 
-      /* Async load Google Fonts */
-      var fontStylesheet = document.createElement("link");
-      fontStylesheet.rel = "stylesheet";
-      fontStylesheet.href =
-        "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap";
-      fontStylesheet.type = "text/css";
-      insertBeforeTag.parentNode.insertBefore(fontStylesheet, insertBeforeTag);
-    </script>
-
-    <!-- Fallback for when JavaScript is disabled -->
-    <noscript>
-      <link
-        href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-  </head>
-  <body class="nes-container">
-    <div class="container">
-      <br />
-      <h1 class="nes-text"><strong> Rahul Zhade </strong></h1>
-      <br />
-      <h3 class="nes-text">
-        AppSec Engineer at <i class="nes-octocat animate" role="img" aria-label="GitHub"></i><span class="octocat-fallback">GitHub</span>
-      </h3>
+    <!--
+      Octocat icon derived from NES.css (https://github.com/nostalgic-css/NES.css)
+      MIT License - Copyright (c) 2018 B.C.Rikko (https://github.com/BcRikko)
+      https://github.com/nostalgic-css/NES.css/blob/develop/LICENSE
+    -->
+    <div class="octocat-icon" id="octocat-icon">
+      <pre class="octo-frame active" id="octo1">    █        █ 
+    ██      ██ 
+    ██████████ 
+   ████████████
+   ████████████
+   ███░░░░░░███
+   ██░ ░░░░ ░██
+   ██░ ░░░░ ░██
+    ██░░  ░░██ 
+ ██    ████    
+   ██ ██████   
+    ████████   
+      █ ██ █   
+      █ ██ █   
+     █ █  █ █    </pre>
+      <pre class="octo-frame" id="octo2">  █        █ 
+  ██      ██ 
+  ██████████ 
+ ████████████
+ ████████████
+ ███░░░░░░███
+ ██░░░░░░░░██
+███░ ░░░░ ░██
+█ ██░░  ░░██ 
+ █   ████    
+  █ ██████   
+  ████████   
+    █ ██ █   
+    █ ██ █   
+   █ █  █ █  </pre>
     </div>
-    <br />
-    <div class="container icons">
-      <a class="nes-btn is-error" href="https://github.com/rzhade3" aria-label="GitHub"
-        ><i class="nes-icon github is-medium" aria-hidden="true"></i
-      ></a>
-      <a class="nes-btn is-warning" href="https://linkedin.com/in/Rahul-Zhade" aria-label="LinkedIn"
-        ><i class="nes-icon linkedin is-medium" aria-hidden="true"></i
-      ></a>
-      <a class="nes-btn is-success" href="https://twitter.com/rzhade" aria-label="Twitter"
-        ><i class="nes-icon twitter is-medium" aria-hidden="true"></i
-      ></a>
-      <a class="nes-btn is-primary" href="https://blog.zhade.dev" aria-label="Blog"
-        ><i class="nes-icon medium is-medium" aria-hidden="true"></i
-      ></a>
-    </div>
-  </body>
+
+    <nav class="links" aria-label="Social links">
+      <a href="https://github.com/rzhade3" aria-label="GitHub">github</a>
+      <a href="https://linkedin.com/in/Rahul-Zhade" aria-label="LinkedIn">linkedin</a>
+      <a href="https://blog.zhade.dev" aria-label="Blog">blog</a>
+    </nav>
+  </div>
+  <script>
+    setInterval(function () {
+      document.getElementById("octo1").classList.toggle("active");
+      document.getElementById("octo2").classList.toggle("active");
+    }, 500);
+  </script>
+</body>
 </html>
