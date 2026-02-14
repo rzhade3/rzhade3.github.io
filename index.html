@@ -23,7 +23,7 @@
       font-family: "Courier New", Courier, monospace;
       background-color: var(--bg);
       color: var(--text);
-      min-height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -175,8 +175,14 @@
 
     /* Responsive: stack links vertically on mobile */
     @media (max-width: 500px) {
+      body {
+        padding: 1rem;
+      }
       .ascii-art {
         font-size: 0.35rem;
+      }
+      .octocat-icon {
+        font-size: 0.5rem;
       }
       .links {
         flex-direction: column;
@@ -214,10 +220,10 @@
     ██      ██ 
     ██████████ 
    ████████████
-   ███░░░░░░███
-   ██░ ░░░░ ░██
-   ██░ ░░░░ ░██
-    ██░░  ░░██ 
+   ███▒▒▒▒▒▒███
+   ██▒ ▒▒▒▒ ▒██
+   ██▒ ▒▒▒▒ ▒██
+    ██▒▒  ▒▒██ 
  ██    ████    
    ██ ██████   
     ████████   
@@ -228,10 +234,10 @@
   ██      ██ 
   ██████████ 
  ████████████
- ███░░░░░░███
- ██░░░░░░░░██
-███░ ░░░░ ░██
-█ ██░░  ░░██ 
+ ███▒▒▒▒▒▒███
+ ██▒▒▒▒▒▒▒▒██
+███▒ ▒▒▒▒ ▒██
+█ ██▒▒  ▒▒██ 
  █   ████    
   █ ██████   
   ████████   
